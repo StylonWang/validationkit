@@ -1,6 +1,8 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from ws4py.client.threadedclient import WebSocketClient
 import time
+import sys
 
 class EchoClient(WebSocketClient):
     def opened(self):
@@ -10,12 +12,15 @@ class EchoClient(WebSocketClient):
             time.sleep(0.1)
         self.close(reason=None)
 
-    #def closed(self, code, reason):
-        #print(("Closed down", code, reason))
+if len(sys.argv) < 3 :
+    print "Usage:", sys.argv[0], "IP port"
+    exit(1)
+
+url="ws://"+sys.argv[1]+":"+sys.argv[2]
 
 if __name__ == '__main__':
     try:
-        ws = EchoClient('ws://10.1.9.109:9310', protocols=['http-only', 'chat'])
+        ws = EchoClient(url, protocols=['http-only', 'chat'])
         ws.daemon = False
         ws.connect()
     except KeyboardInterrupt:
