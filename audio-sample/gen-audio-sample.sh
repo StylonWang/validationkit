@@ -35,7 +35,7 @@ do
       ffmpeg -y -i $master_track -ar $rate -ac $ch -c:a "pcm_s${bits}le" $output || die "Failed to generate $output"
 
       # verify with mediainfo
-      mi_ch=`mediainfo $output| egrep 'Channel.*\d+ channels' | awk '{print $3}'`
+      mi_ch=`mediainfo $output| egrep 'Channel.*channel' | awk '{print $3}'`
       mi_rate=`mediainfo $output| egrep 'Sampling rate' | awk '{print $4}' | awk '{print $0/1}'`
       mi_bits=`mediainfo $output| egrep 'Bit depth' | awk '{print $4}'`
 
