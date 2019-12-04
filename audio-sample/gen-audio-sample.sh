@@ -1,6 +1,7 @@
 #!/bin/bash
 #
-# This script generates audio samples with various sample rates, channels, and sampling bits.
+# This script generates audio samples in WAV format,
+# with various sample rates, channels, and sampling bits.
 #
 # Prerequisite:
 # Bash
