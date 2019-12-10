@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
+#
+#
+#
+#
 
 import json
 import sys
 
 if (len(sys.argv) < 2):
+    print('Usage: ', sys.argv[0], "file.json [skip|pass|fail]\n")
+    print('List the output and result of all skipped/passed/failed tests')
     exit(1)
 
 if (len(sys.argv) >= 3):
